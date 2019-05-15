@@ -39,6 +39,7 @@ if ($use_keystone) {
   }
 }
 
-Haproxy::Service        { use_include => true }
+#Haproxy::Service        { use_include => true }
+include haproxy::params
 Haproxy::Balancermember { use_include => true }
 

@@ -32,6 +32,7 @@ if $detach_keystone_plugin {
   $keystone_nodes_names = keys($keystone_address_map)
 
   $roles = join(hiera('roles'), ',')
+  notice("roles:$roles")
   case $roles {
     /primary-standalone-keystone/: {
       $primary_keystone = true
@@ -47,7 +48,7 @@ if $detach_keystone_plugin {
     }
   }
   case $roles {
-    /keystone/: {
+    /standalone-keystone/: {
       $corosync_roles      = $keystone_roles
       $corosync_nodes      = $keystone_nodes
       $colocate_haproxy    = 'false'

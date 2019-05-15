@@ -1,5 +1,6 @@
 standalone-keystone:
   name: 'Keystone'
+  group: 'base'
   description: 'Separated Keystone from controller'
   has_primary: true
   public_ip_required: true
